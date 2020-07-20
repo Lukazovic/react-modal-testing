@@ -1,24 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
+import ConfirmModal from './ConfirmModal';
+
 import './App.css';
 
 function App() {
+  const [test, setTest] = useState(false);
+  const [showingModal, setShowingModal] = useState(false);
+
+  const lorem =
+    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique atsit, laborum sapiente quos velit laudantium omnis molestiae repellatrecusandae sunt ad neque ipsam possimus saepe eius aperiam veniammolestias.';
+
+  const closeModal = () => {
+    setShowingModal(false);
+  };
+
+  const thruthyResponse = () => {
+    setTest(!test);
+    closeModal();
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="sample">
+      <h1>{test.toString()}</h1>
+      <button
+        onClick={() => {
+          setShowingModal(true);
+        }}
+      >
+        Click me
+      </button>
+
+      <ConfirmModal
+        title={'Change State?'}
+        content={lorem}
+        thruthyResponse={thruthyResponse}
+        closeModal={closeModal}
+        showingModal={showingModal}
+      />
     </div>
   );
 }
