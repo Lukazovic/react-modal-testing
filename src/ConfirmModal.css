@@ -1,0 +1,63 @@
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  opacity: 0;
+  z-index: 2;
+  visibility: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal {
+  background-color: white;
+  padding: 15px;
+  border-radius: 5px;
+  position: relative;
+  max-width: 500px;
+}
+
+.modal p {
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.modal-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-buttons button {
+  cursor: pointer;
+  font-weight: bold;
+  padding: 5px 15px;
+  border: 1px solid black;
+  border-radius: 5px;
+  outline: none;
+  transition: opacity 0.5s ease-in-out;
+  margin-left: 10px;
+  text-transform: capitalize;
+}
+
+.modal-buttons button:hover {
+  opacity: 0.8;
+}
+
+.modal-buttons .cancel {
+  background-color: rgb(170, 170, 170);
+}
+
+.modal-buttons .confirm {
+  background-color: rgb(9, 46, 126);
+  color: white;
+}
